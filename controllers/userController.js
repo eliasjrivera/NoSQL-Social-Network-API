@@ -1,8 +1,7 @@
 const { ObjectId } = require('mongoose').Types;
 const { User, Thought } = require('../models');
 
-student = user
-course =  thought
+// are other aggregates needed bc in the example they have grade, do you need something similar?
 
 module.exports = {
     // Get all users
