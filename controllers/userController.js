@@ -1,7 +1,4 @@
-const { ObjectId } = require('mongoose').Types;
 const { User, Thought } = require('../models');
-
-// are other aggregates needed bc in the example they have grade, do you need something similar?
 
 module.exports = {
     // Get all users
@@ -45,7 +42,7 @@ module.exports = {
         try {
         const user = await User.findByIdAndUpdate(
             { _id: req.params.id },
-            { $set: req.body}, 
+            { $set: req.body }, 
             { new: true, runValidators: true }
         );
         
@@ -57,7 +54,7 @@ module.exports = {
     // Delete a user and remove them
     async deleteUser(req, res) {
         try {
-        const user = await User.findOneAndRemove({ _id: req.params.userId });
+        const user = await User.findOneAndDelete({ _id: req.params.userId });
 
         if (!user) {
             return res.status(404).json({ message: 'No such user exists' });
