@@ -6,7 +6,7 @@
 - [Acceptance Criteria](#acceptance-criteria)
 - [Visuals](#visuals)
 - [Project Repo](#project-repo)
-- [Deployed Site](#deployed-site)
+- [Walkthrough Video](#walkthrough-video)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Support](#support)
@@ -44,14 +44,17 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 ## Project Repo
 [Elias Rivera GitHub Repo](https://github.com/eliasjrivera/NoSQL-Social-Network-API)
 
-## Deployed Site
-[NoSQL Social Network API Deployed Site]()
+## Walkthrough Video
+[Walkthrough Video]()
 
 ## Installation
-`git clone git@github.com:eliasjrivera/NoSQL-Social-Network-API.git`
+1. Install mongoDB
+2. `git clone git@github.com:eliasjrivera/NoSQL-Social-Network-API.git`
+3. `npm install`
+4. `npm run start`
 
 ## Usage
-
+Test routes in Insomnia
 
 ## Support
 Elias Rivera

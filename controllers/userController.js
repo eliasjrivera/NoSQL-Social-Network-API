@@ -12,7 +12,7 @@ module.exports = {
             return res.status(500).json(err);
         }
     },
-    // Get a single user
+    // Get single user
     async getSingleUser(req, res) {
         try {
             const user = await User.findOne({ _id: req.params.id })
@@ -28,7 +28,7 @@ module.exports = {
             return res.status(500).json(err);
         }
     },
-    // create a new user
+    // Create new user
     async createUser(req, res) {
         try {
             const user = await User.create(req.body);
@@ -37,7 +37,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-    // update a new user
+    // Update user
     async updateUser(req, res) {
         try {
             const user = await User.findByIdAndUpdate(
@@ -51,7 +51,7 @@ module.exports = {
             res.status(500).send(err);
         }
     },
-    // Delete a user and remove them
+    // Delete user
     async deleteUser(req, res) {
         try {
             const user = await User.findOneAndRemove({ _id: req.params.id });
@@ -72,7 +72,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-    // Add an friend to a user
+    // Add friend to user
     async addFriend(req, res) {
         console.log('You are adding a friend');
         console.log(req.body);
@@ -95,7 +95,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-    // Remove friend from a user
+    // Remove friend from user
     async removeFriend(req, res) {
         try {
             const user = await User.findOneAndUpdate(

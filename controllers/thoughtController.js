@@ -1,7 +1,5 @@
 const { User, Thought } = require('../models');
 
-// TODO add reactions: create and remove
-
 module.exports = {
     // Get all thoughts
     async getThoughts(req, res) {
@@ -12,7 +10,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-    // Get a thought
+    // Get thought
     async getSingleThought(req, res) {
         try {
             const thought = await Thought.findOne({ _id: req.params.thoughtId })
@@ -27,7 +25,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-    // Create a thought
+    // Create thought
     async createThought(req, res) {
         try {
             const thought = await Thought.create(req.body);
@@ -38,7 +36,7 @@ module.exports = {
             return res.status(500).json(err);
         }
     },
-    // Delete a thought
+    // Delete thought
     async deleteThought(req, res) {
         try {
             const thought = await Thought.findOneAndDelete({ _id: req.params.thoughtId });
@@ -53,7 +51,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-    // Update a thought
+    // Update thought
     async updateThought(req, res) {
         try {
             const thought = await Thought.findOneAndUpdate(
