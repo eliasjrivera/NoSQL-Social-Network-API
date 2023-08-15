@@ -15,7 +15,7 @@ module.exports = {
     // Get a single user
     async getSingleUser(req, res) {
         try {
-            const user = await User.findOne({ _id: req.params.userId })
+            const user = await User.findOne({ _id: req.params.id })
                 .select('-__v');
 
             if (!user) {
@@ -54,20 +54,20 @@ module.exports = {
     // Delete a user and remove them
     async deleteUser(req, res) {
         try {
-            const user = await User.findOneAndDelete({ _id: req.params.userId });
+            const user = await User.findOneAndRemove({ _id: req.params.id });
 
             if (!user) {
                 return res.status(404).json({ message: 'No such user exists' });
             }
 
             const thought = await Thought.findOneAndUpdate(
-                { users: req.params.userId },
-                { $pull: { users: req.params.userId } },
+                { users: req.params.id },
+                { $pull: { users: req.params.id } },
                 { new: true }
             );
 
-            if (!user) {
-                return res.status(404).json({ message: 'User deleted' });
+            if (!thought) {
+                return res.status(404).json({ message: 'User and associated thoughts deleted!' });
             }
 
             res.json({ message: 'User successfully deleted' });
@@ -80,11 +80,11 @@ module.exports = {
     async addFriend(req, res) {
         console.log('You are adding a friend');
         console.log(req.body);
-
+        console.log(req.params);
         try {
             const user = await User.findOneAndUpdate(
                 { _id: req.params.userId },
-                { $addToSet: { friends: req.body } },
+                { $addToSet: { friends: req.params.friendId } },
                 { runValidators: true, new: true }
             );
 
@@ -104,7 +104,7 @@ module.exports = {
         try {
             const user = await User.findOneAndUpdate(
                 { _id: req.params.userId },
-                { $pull: { friends: { friendsId: req.params.friendsId } } },
+                { $pull: { friends: req.params.friendId } },
                 { runValidators: true, new: true }
             );
 
