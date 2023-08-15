@@ -42,10 +42,10 @@ module.exports = {
         try {
             const user = await User.findByIdAndUpdate(
                 { _id: req.params.id },
-                { $set: req.body }, 
+                { $set: req.body },
                 { new: true, runValidators: true }
             );
-        
+
             res.json(user);
         } catch (err) {
             res.status(500).send(err);
@@ -62,13 +62,9 @@ module.exports = {
 
             const thought = await Thought.findOneAndUpdate(
                 { users: req.params.id },
-                { $pull: { users: req.params.id } },
+                { $pull: { friends: req.params.friendId } },
                 { new: true }
             );
-
-            if (!thought) {
-                return res.status(404).json({ message: 'User and associated thoughts deleted!' });
-            }
 
             res.json({ message: 'User successfully deleted' });
         } catch (err) {
