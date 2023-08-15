@@ -45,7 +45,7 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 [Elias Rivera GitHub Repo](https://github.com/eliasjrivera/NoSQL-Social-Network-API)
 
 ## Walkthrough Video
-[Walkthrough Video]()
+[Walkthrough Video](https://drive.google.com/file/d/14K8OMd_g8BCJWZrWhjpiErbVxlucWR0a/view)
 
 ## Installation
 1. Install mongoDB
